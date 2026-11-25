@@ -17,10 +17,10 @@ O objetivo principal é demonstrar o desacoplamento entre serviços através de 
 
 ```mermaid
 flowchart LR
-    Broker[["RabbitMQ Broker (Fila: default.email)"]] -->|@RabbitListener| EmailMS["ms-email (Consumer :8082)"]
-    EmailMS -->|JavaMailSender (SMTP :587)| Gmail["Servidor SMTP (Gmail)"]
-    EmailMS -->|Persiste Status (SENT / ERROR)| EmailDB[("PostgreSQL (ms-email)")]
-    Client["Cliente HTTP"] -->|GET /emails| EmailMS
+    Broker[["RabbitMQ Broker (Fila: default.email)"]] -->|"@RabbitListener"| EmailMS["ms-email (Consumer :8082)"]
+    EmailMS -->|"JavaMailSender (SMTP :587)"| Gmail["Servidor SMTP (Gmail)"]
+    EmailMS -->|"Persiste Status (SENT / ERROR)"| EmailDB[("PostgreSQL (ms-email)")]
+    Client["Cliente HTTP"] -->|"GET /emails"| EmailMS
 ```
 
 ---
